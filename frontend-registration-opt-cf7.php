@@ -19,7 +19,7 @@ function create_user_from_registration($cfdata) {
 	$post_id = sanitize_text_field($_POST['_wpcf7']);
 	$cf7fru = get_post_meta($post_id, "_cf7fru_", true);
 	$cf7fre = get_post_meta($post_id, "_cf7fre_", true);
-    $cf7frr = get_post_meta($post_id, "_cf7frr_", true);
+    //$cf7frr = get_post_meta($post_id, "_cf7frr_", true);
 	
 	$enable = get_post_meta($post_id,'_cf7fr_enable_registration');
 	if($enable[0]!=0)
@@ -28,6 +28,10 @@ function create_user_from_registration($cfdata) {
 		        $submission = WPCF7_Submission::get_instance();
 		        if ($submission) {
 		            $formdata = $submission->get_posted_data();
+                
+                $compagnie = $submission->get_posted_data('compagnie');
+                $sanitize_nom = sanitize_title($submission->get_posted_data('nom'));
+                $sanitize_prenom = sanitize_title($submission->get_posted_data('prenom'));
 		        }
 		    } elseif (isset($cfdata->posted_data)) {
 		        $formdata = $cfdata->posted_data;
@@ -49,14 +53,14 @@ function create_user_from_registration($cfdata) {
             $username = $username_tocheck;
             // Create the user
             $userdata = array(
-                'user_login' => $username,
+                'user_login' => $sanitize_prenom . '.' . $sanitize_nom,
                 'user_pass' => $password,
                 'user_email' => $email,
                 'nickname' => reset($name_parts),
                 'display_name' => $name,
-                'first_name' => reset($name_parts),
-                'last_name' => end($name_parts),
-                'role' => $cf7frr
+                'first_name' => $submission->get_posted_data('prenom'),
+                'last_name' => $submission->get_posted_data('nom'),
+                'role' => 'subscriber'
             );
 
             // Use WP’s built-in email new user notification
@@ -64,7 +68,12 @@ function create_user_from_registration($cfdata) {
                 wp_new_user_notification( $user_id, NULL, 'user' );
             } );
 
-            $user_id = wp_insert_user( $userdata );	        
+            $user_id = wp_insert_user( $userdata );
+    
+            $user = get_user_by( 'ID', $user_id );
+            if ( $user ) {
+                $user->add_role( sanitize_title($compagnie[0]) );
+            }
 	    }
 
 	}

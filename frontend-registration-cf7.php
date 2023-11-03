@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: Frontend Registration - Contact Form 7
+ * Plugin Name: Fork de Frontend Registration - Contact Form 7
  * Plugin URL: http://www.wpbuilderweb.com/frontend-registration-contact-form-7/
- * Description:  This plugin will convert your Contact form 7 in to registration form for WordPress. PRO Plugin available now with New Features. <strong>PRO Version is also available with New Features.</strong>. 
- * Version: 3.1
- * Author: David Pokorny
- * Author URI: http://www.wpbuilderweb.com
- * Developer: Pokorny David
- * Developer E-Mail: pokornydavid4@gmail.com
+ * Description:  Utilisation du plugin Frontend Registration - Contact Form 7 pour le projet SNPNC : A la soumission du formulaire création d'un utilisateur avec un rôle lié à une compagnie
+ * Version: 1.0
+ * Author: Dewy Mercerais
+ * Author URI: https://dewy.fr/
+ * Developer: Dewy Mercerais
+ * Developer E-Mail: dewymercerais@gmail.com
  * Text Domain: contact-form-7-freg
  * Domain Path: /languages
  * 
@@ -43,7 +43,7 @@ function cf7fr_editor_panels_reg ( $panels ) {
 	}
 	add_filter( 'wpcf7_editor_panels', 'cf7fr_editor_panels_reg' );
 
-add_filter('plugin_row_meta',  'my_register_plugins_link', 10, 2);
+/*add_filter('plugin_row_meta',  'my_register_plugins_link', 10, 2);
 function my_register_plugins_link ($links, $file) {
    $base = plugin_basename(__FILE__);
    if ($file == $base) {
@@ -52,7 +52,8 @@ function my_register_plugins_link ($links, $file) {
        //$links[] = '<a href="http://www.wpbuilderweb.com/payment/">' . __('Donate') . '</a>';
    }
    return $links;
-}
+}*/
+
 function cf7fr_admin_reg_additional_settings( $cf7 )
 {
 	
@@ -61,13 +62,9 @@ function cf7fr_admin_reg_additional_settings( $cf7 )
 	$enable = get_post_meta($post_id, "_cf7fr_enable_registration", true);
 	$cf7fru = get_post_meta($post_id, "_cf7fru_", true);
 	$cf7fre = get_post_meta($post_id, "_cf7fre_", true);
-	$cf7frr = get_post_meta($post_id, "_cf7frr_", true);
+	//$cf7frr = get_post_meta($post_id, "_cf7frr_", true);
 	$enablemail = get_post_meta($post_id, "_cf7fr_enablemail_registration", true);
-	$selectedrole = $cf7frr;
-	if(!$selectedrole)
-	{
-		$selectedrole = 'subscriber';
-	}
+	
 	if ($enable == "1") { $checked = "CHECKED"; } else { $checked = ""; }
 	if ($enablemail == "1") { $checkedmail = "CHECKED"; } else { $checkedmail = ""; }
 	
@@ -91,15 +88,17 @@ function cf7fr_admin_reg_additional_settings( $cf7 )
 
 	$admin_cm_output .= "<br /><table>";
 	
-	$admin_cm_output .= "<tr><td>Selected Field Name For User Name :</td></tr>";
+	/*$admin_cm_output .= "<tr><td>Selected Field Name For User Name :</td></tr>";
 	$admin_cm_output .= "<tr><td><select name='_cf7fru_'>";
 	$admin_cm_output .= "<option value=''>Select Field</option>";
 	foreach ($tags as $key => $value) {
-		if($cf7fru==$value['name']){$selected='selected=selected';}else{$selected = "";}			
+		if($cf7fru == $value['name']){$selected='selected=selected';}else{$selected = "";}
 		$admin_cm_output .= "<option ".$selected." value='".$value['name']."'>".$value['name']."</option>";
 	}
+  
+    //$admin_cm_output .= "<option ".$selected." value='".$value['name']."'>".$value['name']."</option>";
 	$admin_cm_output .= "</select>";
-	$admin_cm_output .= "</td></tr>";
+	$admin_cm_output .= "</td></tr>";*/
 
 	$admin_cm_output .= "<tr><td>Selected Field Name For Email :</td></tr>";
 	$admin_cm_output .= "<tr><td><select name='_cf7fre_'>";
@@ -113,6 +112,13 @@ function cf7fr_admin_reg_additional_settings( $cf7 )
 	$admin_cm_output .= "<input type='hidden' name='email' value='2'>";
 	$admin_cm_output .= "<input type='hidden' name='post' value='$post_id'>";
 	$admin_cm_output .= "</td></tr>";
+    
+    /*$selectedrole = $cf7frr;
+    if(!$selectedrole)
+    {
+        $selectedrole = 'subscriber';
+    }
+    
 	$admin_cm_output .= "<tr><td>Selected User Role:</td></tr>";
 	$admin_cm_output .= "<tr><td>";
 	$admin_cm_output .= "<select name='_cf7frr_'>";
@@ -125,7 +131,7 @@ function cf7fr_admin_reg_additional_settings( $cf7 )
              $admin_cm_output .= "<option value='" . esc_attr($role) . "'>$name</option>";
     }
     $admin_cm_output .="</select>";
-	$admin_cm_output .= "</td></tr>";
+	$admin_cm_output .= "</td></tr>";*/
 	$admin_cm_output .="</table>";
 	$admin_cm_output .= "</div>";
 	$admin_cm_output .= "</div>";
@@ -163,8 +169,8 @@ function cf7_save_reg_contact_form( $cf7 ) {
 		$vals = sanitize_text_field($_POST[$key]);
 		update_post_meta($post_id, $key, $vals);	
 
-		$key = "_cf7frr_";
+		/*$key = "_cf7frr_";
 		$vals = sanitize_text_field($_POST[$key]);
-		update_post_meta($post_id, $key, $vals);	
+		update_post_meta($post_id, $key, $vals);*/
 }
 ?>
