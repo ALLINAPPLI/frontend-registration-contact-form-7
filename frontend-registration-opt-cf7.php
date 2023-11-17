@@ -14,7 +14,7 @@ add_filter( 'wpcf7_skip_mail', function( $skip_mail, $contact_form ) {
     }
     return $skip_mail;
 }, 10, 2 );
-function create_user_from_registration($cfdata) {
+/*function create_user_from_registration($cfdata) {
 	//$cmtagobj = new WPCF7_Shortcode( $tag );
 	$post_id = sanitize_text_field($_POST['_wpcf7']);
 	$cf7fru = get_post_meta($post_id, "_cf7fru_", true);
@@ -79,5 +79,5 @@ function create_user_from_registration($cfdata) {
 	}
     return $cfdata;
 }
-add_action('wpcf7_before_send_mail', 'create_user_from_registration', 1, 2);
+add_action('wpcf7_before_send_mail', 'create_user_from_registration', 1, 2);*/
 ?>
