@@ -78,6 +78,8 @@ function cf7fr_admin_reg_additional_settings( $cf7 )
 	$admin_cm_output .= "<div class='mail-field'>";
 	$admin_cm_output .= "<input name='enable' id='enable' value='1' type='checkbox' $checked>";
 	$admin_cm_output .= "<label for='enable'>Enable Registration on this form</label>";
+  $admin_cm_output .= "<p>A l'activation de cette option, les données de ce formulaire CF7 seront utilisées pour la synchronisation du rôle de l'adhérent avec un champ du formulaire</p>";
+  $admin_cm_output .= "<p>un mapping sera également effectué avec des champs ACF</p>";
 	$admin_cm_output .= "</div>";
 
 	$admin_cm_output .= "<br />";
