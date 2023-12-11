@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Fork de Frontend Registration - Contact Form 7
  * Plugin URL: http://www.wpbuilderweb.com/frontend-registration-contact-form-7/
- * Description:  Utilisation du plugin Frontend Registration - Contact Form 7 pour le projet SNPNC : A la soumission du formulaire création d'un utilisateur avec un rôle lié à une compagnie
+ * Description:  Utilisation du plugin Frontend Registration - Contact Form 7 pour ACF : remplissage de champs personnalisés à la soumission du formulaire création d'un utilisateur avec un rôle lié à un rôle
  * Version: 1.0
  * Author: Dewy Mercerais
  * Author URI: https://dewy.fr/
