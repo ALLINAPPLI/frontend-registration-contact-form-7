@@ -85,7 +85,7 @@ function cf7fr_admin_reg_additional_settings( $cf7 )
 	$admin_cm_output .= "<br />";
 	$admin_cm_output .= "<div class='mail-field'>";
 	$admin_cm_output .= "<input name='enablemail' id='enablemail' value='' type='checkbox' $checkedmail>";
-	$admin_cm_output .= "<label for='enablemail'>Éviter les courriels de Contact Form 7 ?</label>";
+	$admin_cm_output .= "<label for='enablemail'>Désactiver le courriel de Contact Form 7 ?</label>";
 	$admin_cm_output .= "</div>";
 
 	$admin_cm_output .= "<br /><table>";
