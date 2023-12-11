@@ -31,7 +31,7 @@ function cf7fr_editor_panels_reg ( $panels ) {
 		
 		$new_page = array(
 			'Error' => array(
-				'title' => __( 'Registration Settings', 'contact-form-7' ),
+				'title' => __( 'Paramètres d\'inscription', 'contact-form-7' ),
 				'callback' => 'cf7fr_admin_reg_additional_settings'
 			)
 		);
@@ -72,20 +72,20 @@ function cf7fr_admin_reg_additional_settings( $cf7 )
 	$admin_cm_output = "";
 	
 	$admin_cm_output .= "<div id='additional_settings-sortables' class='meta-box'><div id='additionalsettingsdiv'>";
-	$admin_cm_output .= "<div class='handlediv' title='Click to toggle'><br></div><h3 class='hndle ui-sortable-handle'><span>Frontend Registration Settings</span></h3>";
+	$admin_cm_output .= "<div class='handlediv' title='Click to toggle'><br></div><h3 class='hndle ui-sortable-handle'><span>Paramètres de Frontend Registration</span></h3>";
 	$admin_cm_output .= "<div class='inside'>";
 	
 	$admin_cm_output .= "<div class='mail-field'>";
 	$admin_cm_output .= "<input name='enable' id='enable' value='1' type='checkbox' $checked>";
-	$admin_cm_output .= "<label for='enable'>Enable Registration on this form</label>";
-  $admin_cm_output .= "<p>A l'activation de cette option, les données de ce formulaire CF7 seront utilisées pour la synchronisation du rôle de l'adhérent avec un champ du formulaire</p>";
-  $admin_cm_output .= "<p>un mapping sera également effectué avec des champs ACF</p>";
+	$admin_cm_output .= "<label for='enable'>Activer la création de compte Wordpress</label>";
+  	$admin_cm_output .= "<p>À l'activation de cette option, les données de ce formulaire CF7 seront utilisées pour la synchronisation du rôle de l'adhérent avec un champ du formulaire.</p>";
+  	$admin_cm_output .= "<p>Un mapping sera également effectué avec des champs personnalisés créés par ACF.</p>";
 	$admin_cm_output .= "</div>";
 
 	$admin_cm_output .= "<br />";
 	$admin_cm_output .= "<div class='mail-field'>";
 	$admin_cm_output .= "<input name='enablemail' id='enablemail' value='' type='checkbox' $checkedmail>";
-	$admin_cm_output .= "<label for='enablemail'>Skip Contact Form 7 emails?</label>";
+	$admin_cm_output .= "<label for='enablemail'>Éviter les courriels de Contact Form 7 ?</label>";
 	$admin_cm_output .= "</div>";
 
 	$admin_cm_output .= "<br /><table>";
@@ -102,9 +102,9 @@ function cf7fr_admin_reg_additional_settings( $cf7 )
 	$admin_cm_output .= "</select>";
 	$admin_cm_output .= "</td></tr>";*/
 
-	$admin_cm_output .= "<tr><td>Selected Field Name For Email :</td></tr>";
+	$admin_cm_output .= "<tr><td>Intitulé du champ choisi pour l\'adresse électronique :</td></tr>";
 	$admin_cm_output .= "<tr><td><select name='_cf7fre_'>";
-	$admin_cm_output .= "<option value=''>Select Field</option>";
+	$admin_cm_output .= "<option value=''>Choisir le champ</option>";
 	foreach ($tags as $key => $value) {
 		if($cf7fre==$value['name']){$selected='selected=selected';}else{$selected = "";}
 		$admin_cm_output .= "<option ".$selected." value='".$value['name']."'>".$value['name']."</option>";
