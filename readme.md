@@ -6,7 +6,7 @@ Celui-ci doit fonctionner avec une extension projet ayant le hook de soumission 
 ## Description
 
 À l'activation du plugin, il est important d'activer la synchronisation en activant l'option suivante ___Enable Registration on this form___.
-Il faut par la suite activer le plugin de traitement des formulaires contact form 7.
+Il faut par la suite activer le plugin de traitement des formulaires Contact Form 7.
 
 ![image](https://github.com/ALLINAPPLI/frontend-registration-contact-form-7-acf/assets/62597730/9bce9104-e541-46f8-82b3-1f2600efc838)
 
