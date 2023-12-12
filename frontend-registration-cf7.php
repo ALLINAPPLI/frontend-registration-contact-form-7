@@ -72,7 +72,8 @@ function cf7fr_admin_reg_additional_settings( $cf7 )
 	$admin_cm_output = "";
 	
 	$admin_cm_output .= "<div id='additional_settings-sortables' class='meta-box'><div id='additionalsettingsdiv'>";
-	$admin_cm_output .= "<div class='handlediv' title='Click to toggle'><br></div><h3 class='hndle ui-sortable-handle'><span>Paramètres de Frontend Registration</span></h3>";
+	//$admin_cm_output .= "<div class='handlediv' title='Click to toggle'><br></div><h3 class='hndle ui-sortable-handle'><span>Paramètres de Frontend Registration</span></h3>";
+	$admin_cm_output .= "<div class='handlediv' title='Click to toggle'><br></div><h3><span>Paramètres de Frontend Registration</span></h3>";
 	$admin_cm_output .= "<div class='inside'>";
 	
 	$admin_cm_output .= "<div class='mail-field'>";
